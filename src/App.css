@@ -24,13 +24,13 @@ Support Teal: #72A9BE
 	background: #ffffff; 
 	color: var(--color-text);
 	font-family: 'Roboto', system-ui, sans-serif;
+	overflow-x: hidden;
 }
 
 .page-main {
 	flex: 1;
 	position: relative;
 	width: 100%;
-	overflow-x: hidden;
 	padding-top: clamp(4rem, 14vh, 8rem);
 }
 
