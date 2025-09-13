@@ -1,3 +1,8 @@
+EL CAMINO COLLEGE SHPE WEBSITE
+
+For future chapter leadership and advisors, please familiarize yourself with React.js. This project is base on the following:
+
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
