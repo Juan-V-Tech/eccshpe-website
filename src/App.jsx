@@ -5,6 +5,7 @@ import Team from './pages/team';
 import Events from './pages/events';
 import Join from './pages/join';
 import StaggeredMenu from './components/StaggeredMenu';
+import ScrollControl from './components/ScrollControl';
 import './App.css';
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
 
   return (
     <div className="app-shell">
+      <ScrollControl />
       {/* Overlay menu */}
       <StaggeredMenu
         position="right"
@@ -63,7 +65,7 @@ function App() {
         </Routes>
       </main>
       <footer className="site-footer">
-        <p>© {new Date().getFullYear()} SHPE @ El Camino College (Torrance, CA)</p>
+        <p>© {new Date().getFullYear()} SHPE @ El Camino College | Made and maintained with Love ❤ by Juan Ventura-Romero </p>
       </footer>
     </div>
   );
