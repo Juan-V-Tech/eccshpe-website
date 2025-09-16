@@ -48,7 +48,7 @@ function App() {
         openMenuButtonColor="#0a2540"
         changeMenuColorOnOpen={false}
         colors={["#0070C0", "#001F5B", "#72A9BE"]}
-        logoUrl="./ECCSHPE.png"
+        logoUrl="/ECCSHPE.png"
         accentColor="#D33A02"
         onMenuOpen={() => console.log('Menu opened')}
         onMenuClose={() => console.log('Menu closed')}
