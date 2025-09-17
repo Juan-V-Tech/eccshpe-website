@@ -4,7 +4,7 @@ const officers = [
   { name: 'Co-President', person: 'Juan Ventura-Romero', focus: 'Operations & Vision', img: './JuanV.JPG' },
   { name: 'Co-President', person: 'Angel Flores', focus: 'Leadership & Vision', img: './AngelFlores.jpeg' },
   { name: 'Vice President', person: 'Steven Diaz', focus: 'Operations & Support', img: './StevenDiaz.jpg' },
-  { name: 'Treasurer (Intrim) & Secretary', person: 'Destiny Mungia', focus: 'Funding & Budget', img: './DestinyMunguia_008.jpg' },
+  { name: 'Treasurer (Interim) & Secretary', person: 'Destiny Mungia', focus: 'Funding & Budget', img: './DestinyMunguia_008.jpg' },
   { name: 'Inter-Club Council Representative', person: 'TBD', focus: 'Representation & Campus Connection', img: '/images/team/tbd.jpg' },
   { name: 'Social Media Representative', person: 'TBD', focus: 'Build Teams & Portfolio', img: '/images/team/tbd.jpg' }
 ];
