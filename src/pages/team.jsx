@@ -6,7 +6,7 @@ const officers = [
   { name: 'Vice President', person: 'Steven Diaz', focus: 'Operations & Support', img: '/StevenDiaz.jpg' },
   { name: 'Treasurer (Interim) & Secretary', person: 'Destiny Mungia', focus: 'Funding & Budget', img: '/DestinyMunguia_008.jpg' },
   { name: 'ICC & CAUSE Representative', person: 'Carlos Chávez', focus: 'Representation & Campus Connection', img: '/CarlosChavez.jpeg' },
-  { name: 'Social Media Representative', person: 'TBD', focus: 'Build Teams & Portfolio', img: '/images/team/tbd.jpg' }
+  { name: 'Social Media Representative', person: 'TBD', focus: 'Build Teams & Portfolio', img: '/tbd.jpg' }
 ];
 
 const Team = () => {
@@ -15,7 +15,7 @@ const Team = () => {
       <div className="section-inner">
         <h1 style={{ marginTop: 0, fontSize: 'clamp(2.2rem,5vw,3.2rem)', letterSpacing: '-1px' }}>Our Leadership</h1>
         <p style={{ fontSize: '1.05rem', maxWidth: 820, lineHeight: 1.5 }}>
-          Dedicated student leaders coordinating programs, partnerships, mentorship, and member growth. Want to help lead? Officer applications open each semester.
+          Dedicated student leaders coordinating programs, partnerships, mentorship, and member growth. Want to help lead? <a href="https://docs.google.com/forms/d/e/1FAIpQLSeWcXqMnkToFU2sfLIDXCyY3bqRQCHWCcGDYARQZXR4lfALtQ/viewform" target="_blank" rel="noopener noreferrer">Officer applications are now open</a>.
         </p>
         <div style={{ display: 'grid', gap: '1.25rem', gridTemplateColumns: 'repeat(auto-fit,minmax(220px,1fr))', marginTop: '2.5rem' }}>
           {officers.map(o => (
