@@ -23,7 +23,7 @@ function App() {
   const socialItems = [
     { label: 'Instagram', link: 'https://www.instagram.com/shpe_elco/' },
     { label: 'GitHub', link: 'https://github.com/ECCSHPE' },
-    { label: 'LinkedIn', link: 'https://linkedin.com' }
+    { label: 'LinkedIn', link: 'https://www.linkedin.com/company/society-of-hispanic-professional-engineers-el-camino-college/' }
   ];
 
   const handleNavigate = (href) => {
