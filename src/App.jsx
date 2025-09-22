@@ -6,6 +6,7 @@ import Events from './pages/events';
 import Join from './pages/join';
 import StaggeredMenu from './components/StaggeredMenu';
 import ScrollControl from './components/ScrollControl';
+import Footer from './components/Footer';
 import './App.css';
 
 function App() {
@@ -64,9 +65,7 @@ function App() {
           <Route path="/join" element={<Join />} />
         </Routes>
       </main>
-      <footer className="site-footer">
-        <p>© {new Date().getFullYear()} SHPE @ El Camino College | Made and maintained with Love ❤ by Juan Ventura-Romero </p>
-      </footer>
+      <Footer socials={socialItems} />
     </div>
   );
 }
