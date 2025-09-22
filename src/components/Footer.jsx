@@ -27,7 +27,7 @@ const Footer = ({ socials = [] }) => {
         </div>
         <div className="footer-meta">
           <p>© {year} SHPE @ El Camino College</p>
-          <p>Made with <span aria-hidden>❤</span> by Juan Ventura-Romero</p>
+          <p>Made with <span aria-hidden="true">❤</span> by Juan Ventura-Romero</p>
         </div>
       </div>
     </footer>
