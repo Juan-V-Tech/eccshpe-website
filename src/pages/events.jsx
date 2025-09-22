@@ -15,7 +15,7 @@ const Events = () => {
           <li><strong>10/29 Week 10 General Meeting 4:</strong> TBD</li>
           <li><strong>11/12 Week 12 General Meeting 5:</strong> Industry Panel (STEM Professionals)</li>
         </ul>
-        <p style={{ fontSize: '.95rem', opacity: .75 }}>Have an event idea? Reach out to the Events Chair or submit it through our interest form on the Join page.</p>
+        <p style={{ fontSize: '.95rem' }}>Have an event idea? Want to collab? Reach out via Email to shpe@elcamino.edu!.</p>
       </div>
     </div>
   );
