@@ -1,49 +1,54 @@
 import { useEffect } from 'react';
 
-/**
- * Component to control scroll behavior, especially on mobile devices
- * This prevents overscrolling while still allowing normal page scrolling
- */
+// Delta-based boundary scroll control to avoid trapping upward scroll
 const ScrollControl = () => {
   useEffect(() => {
-    // Function to handle touch move events on mobile
-    const handleTouchMove = (e) => {
-      const windowHeight = window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-      const scrollTop = window.scrollY;
-      
-      // If we're at the bottom of the page and trying to scroll down more
-      if (scrollTop + windowHeight >= documentHeight - 10) {
-        // Only prevent default if we're trying to scroll down further
-        if (e.touches[0].clientY < e.touches[0].screenY) {
-          e.preventDefault();
-        }
-      }
-      
-      // If we're at the top of the page and trying to scroll up more
-      if (scrollTop <= 10) {
-        // Only prevent default if we're trying to scroll up further
-        if (e.touches[0].clientY > e.touches[0].screenY) {
-          e.preventDefault();
-        }
-      }
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    if (!isMobile) return;
+
+    let lastY = null; // last touch Y position
+    const boundaryLeeway = 4; // px leeway at top/bottom
+
+    const handleTouchStart = (e) => {
+      lastY = e.touches[0].clientY;
     };
 
-    // Only add the passive touch handler on mobile devices
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    
-    if (isMobile) {
-      document.addEventListener('touchmove', handleTouchMove, { passive: false });
-    }
-    
-    return () => {
-      if (isMobile) {
-        document.removeEventListener('touchmove', handleTouchMove);
+    const handleTouchMove = (e) => {
+      if (lastY == null) return;
+      const currentY = e.touches[0].clientY;
+      const deltaY = currentY - lastY; // positive when finger moving down (page should scroll up)
+
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+
+      const atTop = scrollTop <= boundaryLeeway;
+      const atBottom = scrollTop >= maxScroll - boundaryLeeway;
+
+      // If at top and attempting to scroll further up (deltaY > 0 means pulling down)
+      if (atTop && deltaY > 0) {
+        e.preventDefault();
+        return;
       }
+      // If at bottom and attempting to scroll further down (deltaY < 0 means pushing up)
+      if (atBottom && deltaY < 0) {
+        e.preventDefault();
+        return;
+      }
+
+      // Otherwise allow normal scroll
+      lastY = currentY;
+    };
+
+    document.addEventListener('touchstart', handleTouchStart, { passive: true });
+    document.addEventListener('touchmove', handleTouchMove, { passive: false });
+
+    return () => {
+      document.removeEventListener('touchstart', handleTouchStart);
+      document.removeEventListener('touchmove', handleTouchMove);
     };
   }, []);
 
-  return null; // This component doesn't render anything
+  return null;
 };
 
 export default ScrollControl;
