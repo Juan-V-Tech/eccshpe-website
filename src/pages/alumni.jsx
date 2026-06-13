@@ -189,8 +189,8 @@ const Alumni = () => {
           </a>
         </p>
 
-        {renderAlumniSection('Ex-Leadership', exLeadershipAlumni)}
-        {renderAlumniSection('Ex-Members', exMembersAlumni)}
+        {renderAlumniSection('Alumni LeaderSHPE', exLeadershipAlumni)}
+        {renderAlumniSection('Alumni Members', exMembersAlumni)}
       </div>
     </div>
   );
