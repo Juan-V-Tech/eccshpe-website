@@ -88,6 +88,8 @@ const AlumniCard = ({ alumnus }) => {
         style={currentStyle}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
+        onFocus={() => setIsHovered(true)}
+        onBlur={() => setIsHovered(false)}
       >
         <img
           src={alumnus.img}
