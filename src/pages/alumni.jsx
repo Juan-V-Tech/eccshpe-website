@@ -37,13 +37,22 @@ const exLeadershipAlumni = [
 
 const exMembersAlumni = [
   {
-    name: 'TBD',
-    graduationYear: 'TBD',
+    name: 'Patrick Alvarez',
+    graduationYear: '2026',
     roleInShpe: 'SHPE Member',
-    currentPosition: 'TBD',
-    linkedinUrl: '#',
-    img: '/placeholder-assets/tbd.jpg',
-    isTbd: true
+    currentPosition: 'Mechanical Engineering at Cal Poly Pomona',
+    linkedinUrl: 'https://www.linkedin.com/in/patrick-alvarez-5713b92b0/',
+    img: '/public/headshot/Patrick.JPG',
+    isTbd: false
+  },
+  {
+    name: 'Nalupono Nagamine',
+    graduationYear: '2026',
+    roleInShpe: 'SHPE Member',
+    currentPosition: 'Eletrical Engineering at UCI',
+    linkedinUrl: 'https://www.linkedin.com/in/nalupono-nagamine-8b797a394/',
+    img: 'headshot/nalu.jpg',
+    isTbd: false
   }
 ];
 
