@@ -49,7 +49,7 @@ const exMembersAlumni = [
     name: 'Nalupono Nagamine',
     graduationYear: '2026',
     roleInShpe: 'SHPE Member',
-    currentPosition: 'Eletrical Engineering at UCI',
+    currentPosition: 'Electrical Engineering at UCI',
     linkedinUrl: 'https://www.linkedin.com/in/nalupono-nagamine-8b797a394/',
     img: 'headshot/nalu.jpg',
     isTbd: false
