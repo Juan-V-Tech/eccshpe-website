@@ -1,4 +1,4 @@
-/* Document-level defaults. Component and page styles live in app.css. */
+/* Document-level defaults. Each design styles its own pages. */
 
 body {
   margin: 0;
@@ -8,8 +8,35 @@ body {
   overscroll-behavior: auto;
 }
 
+/* `clip` (not `hidden`) so #root doesn't become a scroll container, which
+   would break position: sticky inside the designs. */
 #root {
   min-height: 100dvh;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow-x: clip;
 }
+
+/* Visually hidden, still read by screen readers. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Page background per design, so overscroll and the design swap match. */
+html[data-design='mission'],
+html[data-design='mission'] body { background: #07080a; }
+
+html[data-design='aerospace'],
+html[data-design='aerospace'] body { background: #ffffff; }
+
+html[data-design='familia'],
+html[data-design='familia'] body { background: #ffffff; }
+
+html[data-design='classic'],
+html[data-design='classic'] body { background: #ffffff; }

@@ -1,56 +1,32 @@
-import { Route, Routes } from 'react-router';
-import OverscrollGuard from './components/OverscrollGuard';
-import ScrollToTop from './components/ScrollToTop';
-import SiteFooter from './components/SiteFooter';
-import StaggeredMenu from './components/StaggeredMenu';
-import { BRAND, NAV_ITEMS, SOCIAL_LINKS } from './data/site';
-import AboutPage from './pages/AboutPage';
-import AlumniPage from './pages/AlumniPage';
-import EventsPage from './pages/EventsPage';
-import GalleryPage from './pages/GalleryPage';
-import HomePage from './pages/HomePage';
-import JoinPage from './pages/JoinPage';
-import LeaderShpePage from './pages/LeaderShpePage';
-import NotFoundPage from './pages/NotFoundPage';
-import WebsiteTeamPage from './pages/WebsiteTeamPage';
-import './styles/app.css';
+import { Suspense, useEffect, useState } from 'react';
+import { useDesign } from './designs/DesignContext';
+import DesignSwitcher from './designs/DesignSwitcher';
+import { findDesign, SHOW_DESIGN_SWITCHER } from './designs/registry';
 
-const App = () => (
-  <div className="app-shell">
-    <OverscrollGuard />
-    <ScrollToTop />
+// Renders the selected design. When the design changes, a short curtain fades
+// in, the new design loads behind it, and the curtain fades back out.
+const App = () => {
+  const { design } = useDesign();
+  const [shown, setShown] = useState(design);
+  const switching = design !== shown;
 
-    <StaggeredMenu
-      position="right"
-      items={NAV_ITEMS}
-      socialItems={SOCIAL_LINKS}
-      displaySocials
-      displayItemNumbering
-      menuButtonColor="#0a2540"
-      openMenuButtonColor="#0a2540"
-      changeMenuColorOnOpen={false}
-      colors={['#0070C0', '#001F5B', '#72A9BE']}
-      logoUrl={BRAND.logo}
-      logoAlt="SHPE El Camino College home"
-      accentColor="#D33A02"
-    />
+  useEffect(() => {
+    if (!switching) return undefined;
+    const timer = window.setTimeout(() => setShown(design), 280);
+    return () => window.clearTimeout(timer);
+  }, [design, switching]);
 
-    <main className="page-main">
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/leadershpe" element={<LeaderShpePage />} />
-        <Route path="/website-team" element={<WebsiteTeamPage />} />
-        <Route path="/events" element={<EventsPage />} />
-        <Route path="/gallery" element={<GalleryPage />} />
-        <Route path="/alumni" element={<AlumniPage />} />
-        <Route path="/join" element={<JoinPage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-    </main>
+  const { Component } = findDesign(shown);
 
-    <SiteFooter />
-  </div>
-);
+  return (
+    <>
+      <Suspense fallback={<div className="design-curtain" data-active="" aria-hidden="true" />}>
+        <Component key={shown} />
+      </Suspense>
+      <div className="design-curtain" data-active={switching ? '' : undefined} aria-hidden="true" />
+      {SHOW_DESIGN_SWITCHER && <DesignSwitcher />}
+    </>
+  );
+};
 
 export default App;

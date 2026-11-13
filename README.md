@@ -25,9 +25,29 @@ npm run build    # production build into dist/
 | Alumni                               | `src/data/alumni.js`                  |
 | Gallery albums                       | `src/data/gallery.js`                 |
 | Website Team cards                   | `src/data/websiteTeam.js`             |
-| Page text                            | `src/pages/*Page.jsx`                 |
-| Styles                               | `src/styles/app.css`                  |
+| Page text (redesigns)                | `src/data/content.js`                 |
+| Hero video / slideshow               | `src/data/media.js`                   |
+| Page text (current design)           | `src/pages/*Page.jsx`                 |
+| Styles (current design)              | `src/styles/app.css`                  |
 | Images                               | `public/images/` (see below)          |
+
+## Design previews
+
+The site currently ships three redesign candidates plus the current design, switchable with the floating
+**Design** control at the bottom of the page (or `Alt+Shift+1`–`4`). The choice is remembered, and a link can pick
+one with `?design=mission`, `?design=aerospace`, `?design=familia` or `?design=classic`.
+
+| Design        | Feel                                   | Code                       |
+| ------------- | -------------------------------------- | -------------------------- |
+| 01 Mission    | Dark, technical (Anduril, Mach)        | `src/designs/mission/`     |
+| 02 Aerospace  | Cinematic, corporate (Northrop Grumman) | `src/designs/aerospace/`   |
+| 03 Familia    | Bright, community-first (SHPE LMU)     | `src/designs/familia/`     |
+| 00 Current    | The site before the redesign           | `src/designs/classic/`     |
+
+All four read the people, links and gallery data in `src/data/`; the three redesigns also share their page text
+through `src/data/content.js`. The registry, default design and
+switcher toggle are in `src/designs/registry.js`. Animated components come from React Bits and are copied into
+`src/components/reactbits/` (see its README). Once a design is chosen, point `src/App.jsx` at it and delete the rest.
 
 ### Images
 

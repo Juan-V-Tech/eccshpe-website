@@ -1,0 +1,41 @@
+.hero-media {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: #000;
+}
+
+.hero-media__video,
+.hero-media__slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-media__slide {
+  opacity: 0;
+  transform: scale(1.12);
+  transition: opacity 1.6s ease;
+  will-change: transform, opacity;
+}
+
+.hero-media__slide[data-active] { opacity: 1; }
+
+/* The outgoing slide keeps its zoom running while it fades out. */
+.hero-media__slide[data-active],
+.hero-media__slide[data-previous] {
+  animation: hero-media-zoom var(--hero-media-duration, 8s) linear forwards;
+}
+
+.hero-media[data-still] .hero-media__slide { animation-play-state: paused; }
+
+@keyframes hero-media-zoom {
+  from { transform: scale(1.14) translate3d(0.6%, 0.4%, 0); }
+  to { transform: scale(1.02) translate3d(-0.6%, -0.4%, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-media__slide { animation: none !important; transform: none; transition: none; }
+}
