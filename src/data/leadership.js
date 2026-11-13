@@ -11,8 +11,10 @@ export const EXECUTIVE_CABINET = [
   { title: 'CAUSE Representative', name: 'Fernando Miranda', focus: 'CAUSE initiatives and community outreach', img: headshot('fernando-miranda.jpg') },
 ];
 
-// LeaderSHPE at Large is not shown right now. Set SHOW_AT_LARGE to true on the
-// LeaderSHPE page (src/pages/LeaderShpePage.jsx) to bring the section back.
+// LeaderSHPE at Large is not shown right now. Flip this to true to bring the
+// section back on every design.
+export const SHOW_AT_LARGE = false;
+
 export const LEADERSHPE_AT_LARGE = [
   { title: 'LeaderSHPE at Large', name: 'Alejandro Villalta', focus: 'Chapter support and cross-team collaboration', img: headshot('alejandro-villalta.jpg') },
   { title: 'LeaderSHPE at Large', name: 'Isaac Bhoorquez', focus: 'Member engagement and program support', img: headshot('isaac-bhoorquez.jpg') },

@@ -4,12 +4,15 @@ import { BrowserRouter } from 'react-router';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import App from './App';
+import DesignProvider from './designs/DesignProvider';
 import './styles/base.css';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-      <App />
+      <DesignProvider>
+        <App />
+      </DesignProvider>
       <Analytics />
       <SpeedInsights />
     </BrowserRouter>

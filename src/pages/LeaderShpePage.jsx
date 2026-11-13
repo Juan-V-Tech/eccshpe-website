@@ -1,11 +1,8 @@
 import CardSection from '../components/CardSection';
 import PageSection from '../components/PageSection';
 import ProfileCard from '../components/ProfileCard';
-import { EXECUTIVE_CABINET, LEADERSHPE_AT_LARGE, SUPPORTING_ALUMNI } from '../data/leadership';
+import { EXECUTIVE_CABINET, LEADERSHPE_AT_LARGE, SHOW_AT_LARGE, SUPPORTING_ALUMNI } from '../data/leadership';
 import { FORMS } from '../data/site';
-
-// Flip to true to show the LeaderSHPE at Large section again.
-const SHOW_AT_LARGE = false;
 
 const MemberSection = ({ title, members }) => (
   <CardSection title={title}>
